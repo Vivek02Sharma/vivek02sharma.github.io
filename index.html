@@ -3,1593 +3,326 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-  <title>vivek@fedora:~$</title>
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 267 267'><defs><radialGradient id='a' cx='0.5' cy='0.5' r='0.5'><stop offset='0%' stop-color='%23ffffff'/><stop offset='100%' stop-color='%23294172'/></radialGradient></defs><circle cx='133.5' cy='133.5' r='133.5' fill='%23294172'/><circle cx='133.5' cy='133.5' r='108' fill='url(%23a)'/><path d='M133.5 45c-48.8 0-88.5 39.7-88.5 88.5s39.7 88.5 88.5 88.5 88.5-39.7 88.5-88.5S182.3 45 133.5 45zm0 157c-37.8 0-68.5-30.7-68.5-68.5S95.7 65 133.5 65s68.5 30.7 68.5 68.5S171.3 202 133.5 202z' fill='%23ffffff'/><text x='133.5' y='145' text-anchor='middle' font-family='Arial,sans-serif' font-size='60' font-weight='bold' fill='%23ffffff'>F</text></svg>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vivek Sharma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Ubuntu+Mono:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <style>
-    :root {
-      --bg: #0c0c0c;
-      --terminal-bg: #1e1e1e;
-      --primary: #00ff00;
-      --accent: #00d7ff;
-      --text: #ffffff;
-      --terminal-green: #00ff00;
-      --terminal-red: #ff5555;
-      --terminal-yellow: #ffff55;
-      --terminal-blue: #5555ff;
-      --terminal-purple: #ff55ff;
-      --terminal-cyan: #55ffff;
-      --border: #333333;
-      --shadow: rgba(0, 255, 0, 0.3);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Ubuntu Mono', 'Fira Code', monospace;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.4;
-      font-size: 14px;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
-    }
-
-    .terminal-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 1rem;
-      background: var(--terminal-bg);
-      border: 2px solid var(--border);
-      border-radius: 8px;
-      box-shadow: 0 0 20px var(--shadow);
-      margin-top: 2rem;
-    }
-
-    .terminal-header {
-      background: var(--border);
-      padding: 0.5rem 1rem;
-      border-radius: 6px 6px 0 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin: -1rem -1rem 1rem -1rem;
-    }
-
-    .terminal-buttons {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .terminal-button {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
-
-    .close {
-      background: var(--terminal-red);
-    }
-
-    .minimize {
-      background: var(--terminal-yellow);
-    }
-
-    .maximize {
-      background: var(--terminal-green);
-    }
-
-    .terminal-title {
-      margin-left: auto;
-      font-size: 0.8rem;
-      color: var(--text);
-    }
-
-    .prompt {
-      color: var(--terminal-green);
-      font-weight: bold;
-    }
-
-    .user {
-      color: var(--terminal-cyan);
-    }
-
-    .host {
-      color: var(--terminal-purple);
-    }
-
-    .path {
-      color: var(--terminal-blue);
-    }
-
-    .command {
-      color: var(--terminal-yellow);
-    }
-
-    h1 {
-      font-family: 'Ubuntu Mono', monospace;
-      color: var(--terminal-green);
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 10px var(--shadow);
-    }
-
-    .ascii-art {
-      color: var(--terminal-green);
-      font-size: 1rem;
-      line-height: 1.1;
-      margin: 1rem 0;
-      white-space: pre;
-      text-shadow: 0 0 8px var(--shadow);
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      display: block;
-      width: 100%;
-      text-align: center;
-      font-family: 'Courier New', 'Ubuntu Mono', monospace;
-      font-weight: normal;
-      background: rgba(0, 255, 0, 0.03);
-      padding: 1.5rem;
-      border-radius: 8px;
-      border: 1px solid rgba(0, 255, 0, 0.2);
-      letter-spacing: 0px;
-      word-spacing: 0px;
-    }
-
-    .ascii-art-mobile {
-      display: none;
-      color: var(--terminal-green);
-      font-size: 2rem;
-      font-weight: bold;
-      text-align: center;
-      margin: 1rem 0;
-      font-family: 'Ubuntu Mono', monospace;
-      text-shadow: 0 0 15px var(--shadow);
-      letter-spacing: 3px;
-      padding: 1rem;
-      border: 3px solid var(--terminal-green);
-      border-radius: 12px;
-      background: rgba(0, 255, 0, 0.15);
-      animation: glow 2s ease-in-out infinite alternate;
-      min-height: 60px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    @keyframes glow {
-      from {
-        box-shadow: 0 0 5px var(--shadow);
-      }
-
-      to {
-        box-shadow: 0 0 20px var(--shadow), 0 0 30px var(--shadow);
-      }
-    }
-
-    .command-line {
-      background: var(--terminal-bg);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1rem;
-      margin: 1rem 0;
-      font-family: 'Ubuntu Mono', monospace;
-      position: relative;
-    }
-
-    .command-line::before {
-      content: "$ ";
-      color: var(--terminal-green);
-      font-weight: bold;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-
-    .contact-links a {
-      color: var(--accent);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      padding: 0.5rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      transition: all 0.3s ease;
-    }
-
-    .contact-links a:hover,
-    .contact-links a:focus {
-      background: var(--border);
-      box-shadow: 0 0 10px var(--shadow);
-      transform: translateY(-2px);
-      outline: 2px solid var(--terminal-green);
-      outline-offset: 2px;
-    }
-
-    .contact-links a:active {
-      transform: translateY(0);
-    }
-
-    .section-header {
-      color: var(--terminal-green);
-      font-family: 'Ubuntu Mono', monospace;
-      font-size: 1.2rem;
-      margin: 2rem 0 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .section-header::before {
-      content: "├── ";
-      color: var(--terminal-cyan);
-    }
-
-    .section-header:first-of-type::before {
-      content: "┌── ";
-    }
-
-    .section-header:last-of-type::before {
-      content: "└── ";
-    }
-
-    .terminal-output {
-      background: var(--terminal-bg);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1rem;
-      margin: 1rem 0;
-      font-family: 'Ubuntu Mono', monospace;
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
-
-    .file-tree {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      margin: 1rem 0;
-    }
-
-    .directory-item {
-      background: var(--terminal-bg);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1rem;
-      position: relative;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease;
-    }
-
-    .directory-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .directory-item:hover,
-    .directory-item:focus-within {
-      border-color: var(--terminal-green);
-      box-shadow: 0 0 15px var(--shadow);
-    }
-
-    .directory-item:active {
-      transform: scale(0.98);
-    }
-
-    .file-icon {
-      color: var(--terminal-cyan);
-      margin-right: 0.5rem;
-    }
-
-    .file-name {
-      color: var(--terminal-green);
-      font-family: 'Ubuntu Mono', monospace;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
-
-
-
-    .file-link {
-      color: var(--accent);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    .file-link:hover {
-      text-shadow: 0 0 5px var(--accent);
-    }
-
-    .package-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 0.5rem 0;
-    }
-
-    .package {
-      background: var(--border);
-      color: var(--terminal-cyan);
-      padding: 0.2rem 0.5rem;
-      border-radius: 3px;
-      font-size: 0.8rem;
-      font-family: 'Ubuntu Mono', monospace;
-      border: 1px solid var(--terminal-cyan);
-    }
-
-    .log-entry {
-      background: var(--terminal-bg);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-left: 3px solid var(--terminal-green);
-    }
-
-
-
-    .process-tree {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-
-    .process-item {
-      background: var(--terminal-bg);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1rem;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease;
-    }
-
-    .process-item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .process-item:hover,
-    .process-item:focus-within {
-      border-color: var(--terminal-green);
-      box-shadow: 0 0 10px var(--shadow);
-    }
-
-    .process-item:active {
-      transform: scale(0.98);
-    }
-
-    /* Smooth scrolling for the entire page */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Better focus indicators */
-    *:focus {
-      outline: 2px solid var(--terminal-green);
-      outline-offset: 2px;
-    }
-
-    /* Remove focus outline for mouse users */
-    *:focus:not(:focus-visible) {
-      outline: none;
-    }
-
-    /* Improve touch targets */
-    .file-link,
-    .contact-links a {
-      min-height: 44px;
-      min-width: 44px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .process-name {
-      color: var(--terminal-green);
-      font-family: 'Ubuntu Mono', monospace;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-
-
-    .command-list {
-      list-style: none;
-      margin: 0.5rem 0;
-    }
-
-    .command-list li {
-      padding: 0.2rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: 'Ubuntu Mono', monospace;
-      font-size: 0.9rem;
-    }
-
-    .command-list li::before {
-      content: '├─';
-      color: var(--terminal-cyan);
-      font-weight: bold;
-    }
-
-    .command-list li:last-child::before {
-      content: '└─';
-    }
-
-    .status-bar {
-      background: var(--border);
-      padding: 0.5rem 1rem;
-      border-radius: 0 0 6px 6px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      margin: 1rem -1rem -1rem -1rem;
-    }
-
-    .system-info {
-      color: var(--terminal-cyan);
-    }
-
-    .uptime {
-      color: var(--terminal-green);
-    }
-
-    .blinking-cursor {
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-
-      0%,
-      50% {
-        opacity: 1;
-      }
-
-      51%,
-      100% {
-        opacity: 0;
-      }
-    }
-
-    .typing-animation {
-      overflow: hidden;
-      border-right: 2px solid var(--terminal-green);
-      white-space: nowrap;
-      animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from {
-        width: 0;
-      }
-
-      to {
-        width: 100%;
-      }
-    }
-
-    @keyframes blink-caret {
-
-      from,
-      to {
-        border-color: transparent;
-      }
-
-      50% {
-        border-color: var(--terminal-green);
-      }
-    }
-
-    /* Tablet styles */
-    @media (max-width: 1024px) {
-      .terminal-container {
-        max-width: 95%;
-        margin: 1rem auto;
-      }
-
-      .file-tree,
-      .process-tree {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      }
-
-      .ascii-art {
-        font-size: 0.8rem;
-        transform: scale(1);
-        transform-origin: center;
-        line-height: 1;
-        padding: 1rem;
-        letter-spacing: 0.3px;
-      }
-    }
-
-    /* Medium screens - show compact ASCII */
-    @media (max-width: 900px) and (min-width: 769px) {
-      .ascii-art {
-        display: none !important;
-      }
-
-      .ascii-art-compact {
-        display: block !important;
-        font-size: 0.7rem;
-        padding: 0.8rem;
-        background: rgba(0, 255, 0, 0.03);
-        border: 1px solid rgba(0, 255, 0, 0.2);
-        border-radius: 8px;
-      }
-
-      .ascii-art-mobile {
-        display: none !important;
-      }
-    }
-
-    /* Mobile styles */
-    @media (max-width: 768px) {
-      .ascii-art {
-        display: none !important;
-      }
-
-      .ascii-art-compact {
-        display: none !important;
-      }
-
-      .ascii-art-mobile {
-        display: flex !important;
-        font-size: 1.5rem;
-        margin: 1rem 0;
-        padding: 0.8rem;
-      }
-
-      body {
-        font-size: 13px;
-        padding: 0;
-      }
-
-      .terminal-container {
-        margin: 0.5rem;
-        padding: 0.5rem;
-        border-radius: 4px;
-      }
-
-      .terminal-header {
-        padding: 0.3rem 0.5rem;
-        margin: -0.5rem -0.5rem 0.5rem -0.5rem;
-      }
-
-      .terminal-title {
-        font-size: 0.7rem;
-      }
-
-      .ascii-art {
-        font-size: 0.55rem;
-        line-height: 0.95;
-        margin: 0.5rem 0;
-        transform: scale(0.95);
-        transform-origin: center;
-        padding: 0.8rem;
-        letter-spacing: 0.2px;
-      }
-
-      h1 {
-        font-size: 1.2rem;
-      }
-
-      .command-line {
-        padding: 0.5rem;
-        font-size: 0.8rem;
-        word-break: break-all;
-      }
-
-      .terminal-output {
-        padding: 0.5rem;
-        font-size: 0.8rem;
-        line-height: 1.3;
-      }
-
-      .section-header {
-        font-size: 1rem;
-        margin: 1.5rem 0 0.5rem;
-      }
-
-      .contact-links {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .contact-links a {
-        padding: 0.7rem;
-        font-size: 0.8rem;
-        justify-content: center;
-      }
-
-      .file-tree,
-      .process-tree {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-      }
-
-      .directory-item,
-      .process-item,
-      .log-entry {
-        padding: 0.7rem;
-      }
-
-
-
-      .file-name {
-        font-size: 0.9rem;
-        margin-bottom: 0.3rem;
-      }
-
-      .package-list {
-        gap: 0.3rem;
-        margin: 0.3rem 0;
-      }
-
-      .package {
-        font-size: 0.7rem;
-        padding: 0.1rem 0.3rem;
-      }
-
-      .process-name {
-        font-size: 0.9rem;
-        margin-bottom: 0.3rem;
-      }
-
-
-
-      .command-list li {
-        font-size: 0.8rem;
-        padding: 0.1rem 0;
-      }
-
-      .status-bar {
-        flex-direction: column;
-        gap: 0.3rem;
-        text-align: center;
-        padding: 0.3rem 0.5rem;
-        margin: 0.5rem -0.5rem -0.5rem -0.5rem;
-      }
-
-      .system-info,
-      .uptime {
-        font-size: 0.7rem;
-      }
-    }
-
-    /* Small mobile styles */
-    @media (max-width: 600px) {
-      body {
-        font-size: 12px;
-      }
-
-      .terminal-container {
-        margin: 0.25rem;
-        padding: 0.3rem;
-      }
-
-      .terminal-header {
-        padding: 0.2rem 0.3rem;
-        margin: -0.3rem -0.3rem 0.3rem -0.3rem;
-      }
-
-      .terminal-buttons {
-        gap: 0.3rem;
-      }
-
-      .terminal-button {
-        width: 10px;
-        height: 10px;
-      }
-
-      .terminal-title {
-        font-size: 0.6rem;
-      }
-
-      .ascii-art {
-        display: none !important;
-      }
-
-      .ascii-art-mobile {
-        display: flex !important;
-        font-size: 1.5rem;
-        margin: 1rem 0;
-        padding: 1rem;
-        border-width: 2px;
-      }
-
-      h1 {
-        font-size: 1rem;
-      }
-
-      .command-line {
-        padding: 0.3rem;
-        font-size: 0.7rem;
-      }
-
-      .terminal-output {
-        padding: 0.3rem;
-        font-size: 0.7rem;
-      }
-
-      .section-header {
-        font-size: 0.9rem;
-        margin: 1rem 0 0.3rem;
-      }
-
-      .contact-links a {
-        padding: 0.5rem;
-        font-size: 0.7rem;
-      }
-
-      .directory-item,
-      .process-item,
-      .log-entry {
-        padding: 0.5rem;
-      }
-
-
-
-      .file-name,
-      .process-name {
-        font-size: 0.8rem;
-      }
-
-      .package {
-        font-size: 0.6rem;
-        padding: 0.1rem 0.2rem;
-      }
-
-      .command-list li {
-        font-size: 0.7rem;
-      }
-
-      .status-bar {
-        padding: 0.2rem 0.3rem;
-        margin: 0.3rem -0.3rem -0.3rem -0.3rem;
-      }
-
-      .system-info,
-      .uptime {
-        font-size: 0.6rem;
-      }
-    }
-
-    /* Landscape mobile styles */
-    @media (max-width: 768px) and (orientation: landscape) {
-      .ascii-art-mobile {
-        font-size: 1.3rem !important;
-        margin: 0.5rem 0 !important;
-        padding: 0.8rem !important;
-      }
-
-      .terminal-container {
-        margin: 0.3rem;
-      }
-
-      .section-header {
-        margin: 1rem 0 0.5rem;
-      }
-    }
-
-    /* High DPI displays */
-    @media (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi) {
-      .ascii-art {
-        text-rendering: optimizeLegibility;
-      }
-
-      .terminal-button {
-        border: 0.5px solid rgba(255, 255, 255, 0.1);
-      }
-    }
-
-    /* Performance optimizations for mobile */
-    @media (max-width: 768px) {
-      * {
-        -webkit-tap-highlight-color: rgba(0, 255, 0, 0.2);
-      }
-
-      .terminal-container {
-        -webkit-overflow-scrolling: touch;
-        transform: translateZ(0);
-        will-change: scroll-position;
-      }
-
-      .directory-item,
-      .process-item {
-        will-change: transform;
-        backface-visibility: hidden;
-      }
-
-      /* Reduce motion for users who prefer it */
-      @media (prefers-reduced-motion: reduce) {
-
-        *,
-        *::before,
-        *::after {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-        }
-
-        .blinking-cursor {
-          animation: none;
-        }
-      }
-
-      /* Dark mode support */
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg: #000000;
-          --terminal-bg: #111111;
-        }
-      }
-
-      /* Improve readability on small screens */
-      .terminal-output {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
-      }
-
-      .command-line {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-      }
-
-      /* Better spacing for touch */
-      .contact-links a {
-        margin: 0.2rem 0;
-      }
-
-      .file-link {
-        margin: 0.3rem 0;
-        padding: 0.5rem;
-      }
-    }
-
-    /* Ensure name is always visible */
-    @media (max-width: 400px) {
-      .ascii-art-mobile {
-        font-size: 1.8rem !important;
-        margin: 1.5rem 0 !important;
-        padding: 1.2rem !important;
-      }
-
-      #name-fallback {
-        font-size: 2rem !important;
-      }
-    }
-
-    /* Extra small screens */
-    @media (max-width: 320px) {
-      .ascii-art-mobile {
-        font-size: 1.5rem !important;
-        letter-spacing: 2px !important;
-      }
-
-      #name-fallback {
-        font-size: 1.8rem !important;
-        letter-spacing: 3px !important;
-      }
-    }
-
-    /* Print styles */
-    @media print {
-      .terminal-container {
-        border: 1px solid #000;
-        box-shadow: none;
-        background: white;
-        color: black;
-      }
-
-      .ascii-art,
-      .terminal-header,
-      .status-bar {
-        display: none;
-      }
-
-      .ascii-art-mobile,
-      #name-fallback {
-        display: block !important;
-        color: black !important;
-        background: none !important;
-        border: none !important;
-        text-shadow: none !important;
-      }
-
-      .command-line,
-      .terminal-output {
-        background: transparent;
-        border: none;
-        color: black;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <div class="terminal-container">
-    <div class="terminal-header">
-      <div class="terminal-buttons">
-        <div class="terminal-button close"></div>
-        <div class="terminal-button minimize"></div>
-        <div class="terminal-button maximize"></div>
-      </div>
-      <div class="terminal-title">vivek@fedora-portfolio: ~</div>
-    </div>
 
-    <div class="ascii-art">
-██╗   ██╗██╗██╗   ██╗███████╗██╗  ██╗    ███████╗██╗  ██╗ █████╗ ██████╗ ███╗   ███╗ █████╗
-██║   ██║██║██║   ██║██╔════╝██║ ██╔╝    ██╔════╝██║  ██║██╔══██╗██╔══██╗████╗ ████║██╔══██╗
-██║   ██║██║██║   ██║█████╗  █████╔╝     ███████╗███████║███████║██████╔╝██╔████╔██║███████║
-╚██╗ ██╔╝██║╚██╗ ██╔╝██╔══╝  ██╔═██╗     ╚════██║██╔══██║██╔══██║██╔══██╗██║╚██╔╝██║██╔══██║
- ╚████╔╝ ██║ ╚████╔╝ ███████╗██║  ██╗    ███████║██║  ██║██║  ██║██║  ██║██║ ╚═╝ ██║██║  ██║
-  ╚═══╝  ╚═╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝    ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝
-    </div>
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
 
-    <!-- Compact ASCII for medium screens -->
-    <div class="ascii-art-compact" style="display: none; color: var(--terminal-green); font-size: 1.2rem; font-weight: bold; text-align: center; margin: 1rem 0; font-family: 'Ubuntu Mono', monospace; text-shadow: 0 0 10px var(--shadow); white-space: pre; line-height: 1.1;">
-██╗   ██╗██╗██╗   ██╗███████╗██╗  ██╗
-██║   ██║██║██║   ██║██╔════╝██║ ██╔╝
-██║   ██║██║██║   ██║█████╗  █████╔╝
-╚██╗ ██╔╝██║╚██╗ ██╔╝██╔══╝  ██╔═██╗
- ╚████╔╝ ██║ ╚████╔╝ ███████╗██║  ██╗
-  ╚═══╝  ╚═╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝
+  <!-- Scanline overlay -->
+  <div class="scanlines" aria-hidden="true"></div>
 
-███████╗██╗  ██╗ █████╗ ██████╗ ███╗   ███╗ █████╗
-██╔════╝██║  ██║██╔══██╗██╔══██╗████╗ ████║██╔══██╗
-███████╗███████║███████║██████╔╝██╔████╔██║███████║
-╚════██║██╔══██║██╔══██║██╔══██╗██║╚██╔╝██║██╔══██║
-███████║██║  ██║██║  ██║██║  ██║██║ ╚═╝ ██║██║  ██║
-╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝
-    </div>
-
-    <div class="ascii-art-mobile">
-      VIVEK SHARMA
-    </div>
-
-    <!-- Fallback name display -->
-    <div id="name-fallback" style="display: none; color: var(--terminal-green); font-size: 2.5rem; font-weight: bold; text-align: center; margin: 2rem 0; font-family: 'Ubuntu Mono', monospace; text-shadow: 0 0 20px var(--shadow); letter-spacing: 4px;">
-      VIVEK SHARMA
-    </div>
-
-    <div class="command-line">
-      <span class="user">vivek</span><span class="prompt">@</span><span class="host">fedora</span><span
-        class="prompt">:</span><span class="path">~</span><span class="prompt">$</span> <span
-        class="command">whoami</span>
-    </div>
-
-    <div class="terminal-output">
-      <span class="prompt">></span> Jr. Software Engineer - Machine Learning @ Anvex AI Technologies<br>
-      <span class="prompt">></span> Built RAG systems, LLM applications, and custom NLP models<br>
-      <span class="prompt">></span> BSc IT Graduate | Linux User | Open-Source Contributor
-    </div>
-
-    <div class="command-line">
-      <span class="user">vivek</span><span class="prompt">@</span><span class="host">fedora</span><span
-        class="prompt">:</span><span class="path">~</span><span class="prompt">$</span> <span class="command">ls -la
-        /home/vivek/contacts/</span>
-    </div>
-
-    <div class="contact-links">
-      <a href="mailto:vivektusharma@gmail.com" id="email-link" title="Click to copy email address"><i
-          class="fas fa-envelope"></i> mail</a>
-      <a href="https://linkedin.com/in/vivek-sharma-64951b24b" target="_blank"><i class="fab fa-linkedin"></i>
-        linkedin</a>
-      <a href="https://github.com/Vivek02Sharma" target="_blank"><i class="fab fa-github"></i> github</a>
-      <a href="https://x.com/sudo_vivek" target="_blank"><i class="fab fa-twitter"></i> twitter</a>
-    </div>
-
-    <div class="command-line">
-      <span class="user">vivek</span><span class="prompt">@</span><span class="host">fedora</span><span
-        class="prompt">:</span><span class="path">~</span><span class="prompt">$</span> <span class="command">wget
-        /home/vivek/documents/resume.pdf</span>
-    </div>
-
-    <div style="margin: 1rem 0;">
-      <a href="assets/vivek's_resume.pdf" download class="file-link">
-        <i class="fas fa-file-pdf"></i> resume.pdf <span style="color: var(--terminal-yellow);">[PDF, 2.3MB]</span>
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">[</span>VS<span class="logo-bracket">]</span>
       </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">about</a></li>
+        <li><a href="#experience" class="nav-link">exp</a></li>
+        <li><a href="#projects" class="nav-link">projects</a></li>
+        <li><a href="#contact" class="nav-link cta-link">contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <div class="command-line">
-      <span class="user">vivek</span><span class="prompt">@</span><span class="host">fedora</span><span
-        class="prompt">:</span><span class="path">~</span><span class="prompt">$</span> <span class="command">cat
-        /etc/passwd | grep vivek</span>
-    </div>
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="home">
+    <canvas class="neural-canvas" id="neuralCanvas"></canvas>
+    <div class="hero-content">
+      <h1 class="hero-name animate-in" style="--delay:0.15s">
+        Vivek<br /><em>Sharma</em>
+      </h1>
 
-    <section class="about">
-      <div class="section-header">about.txt</div>
-      <p>I'm Vivek Sharma, a Jr. Software Engineer specializing in Machine Learning at Anvex AI Technologies. With a BSc in Information Technology from the University of Mumbai, I build production-ready RAG systems, develop custom LLM applications, and architect NLP models from scratch. My work spans telephony AI platforms, policy chatbots, and custom sentence embedding models. As a passionate Linux user and open-source contributor, I leverage PyTorch, LangChain, and vector databases to create intelligent systems that solve real-world problems.</p>
-    </section>
-
-    <div class="command-line">
-      <span class="user">vivek</span><span class="prompt">@</span><span class="host">fedora</span><span
-        class="prompt">:</span><span class="path">~</span><span class="prompt">$</span> <span class="command">ls -la
-        ~/projects/</span>
-    </div>
-
-    <section id="projects">
-      <div class="section-header">projects/</div>
-      <div class="file-tree">
-        <div class="directory-item">
-          <div class="file-name"><i class="fas fa-folder file-icon"></i>MedVec-Scratch/</div>
-          <div class="package-list">
-            <span class="package">pytorch</span>
-            <span class="package">transformers</span>
-            <span class="package">bpe-tokenizer</span>
-          </div>
-          <div class="terminal-output" style="margin: 0.5rem 0; font-size: 0.85rem;">
-            Custom sentence embedding model with Siamese Transformer architecture (4 layers, 4 heads, 256 dim).<br>
-            Features: Custom BPE tokenizer (30k vocab), trained on 233k medical triplets, <span style="color: var(--terminal-cyan);">Triplet Margin Loss</span><br>
-          </div>
-          <a href="https://github.com/Vivek02Sharma/MedVec-Scratch.git" target="_blank" class="file-link">
-            <i class="fab fa-github"></i> git clone
-          </a>
-          <a href="https://colab.research.google.com/drive/1apmVMRNxpeVr3H51ndK1Kn5OEAvQyM5p?usp=sharing" target="_blank" class="file-link">
-            <i class="fab fa-google"></i> colab notebook
-          </a>
-        </div>
-
-        <div class="directory-item">
-          <div class="file-name"><i class="fas fa-folder file-icon"></i>ArtCycle/</div>
-          <div class="package-list">
-            <span class="package">python</span>
-            <span class="package">tensorflow</span>
-            <span class="package">cyclegan</span>
-          </div>
-          <div class="terminal-output" style="margin: 0.5rem 0; font-size: 0.85rem;">
-            Artistic style transfer between photos and paintings using unsupervised deep learning.<br>
-            Status: <span style="color: var(--terminal-green);">deployed</span> on Streamlit Cloud
-          </div>
-          <a href="https://github.com/Vivek02Sharma/ArtCycle.git" target="_blank" class="file-link">
-            <i class="fab fa-github"></i> git clone
-          </a>
-        </div>
-
-        <div class="directory-item">
-          <div class="file-name"><i class="fas fa-folder file-icon"></i>FederalRegistryRAG/</div>
-          <div class="package-list">
-            <span class="package">groq-llm</span>
-            <span class="package">mysql</span>
-            <span class="package">streamlit</span>
-          </div>
-          <div class="terminal-output" style="margin: 0.5rem 0; font-size: 0.85rem;">
-            RAG-based AI system to query US Federal Registry documents.<br>
-            Features: <span style="color: var(--terminal-cyan);">real-time data</span>, async processing, clean UI
-          </div>
-          <a href="https://github.com/Vivek02Sharma/AskRAG.git" target="_blank" class="file-link">
-            <i class="fab fa-github"></i> git clone
-          </a>
-        </div>
-
-
-        <div class="directory-item">
-          <div class="file-name"><i class="fas fa-folder file-icon"></i>StudentAnalytics-SPAPS/</div>
-          <div class="package-list">
-            <span class="package">xgboost</span>
-            <span class="package">mongodb</span>
-            <span class="package">streamlit</span>
-          </div>
-          <div class="terminal-output" style="margin: 0.5rem 0; font-size: 0.85rem;">
-            ML-powered academic performance prediction system.<br>
-            Features: interactive dashboards, secure role-based access
-          </div>
-          <a href="https://github.com/Vivek02Sharma/Student-Performance-Analysis-and-Prediction.git" target="_blank"
-            class="file-link">
-            <i class="fab fa-github"></i> git clone
-          </a>
-        </div>
-
-        <div class="directory-item">
-          <div class="file-name"><i class="fas fa-folder file-icon"></i>NeuroScan/</div>
-          <div class="package-list">
-            <span class="package">cnn</span>
-            <span class="package">tensorflow</span>
-            <span class="package">huggingface</span>
-          </div>
-          <div class="terminal-output" style="margin: 0.5rem 0; font-size: 0.85rem;">
-            MRI classification system for detecting brain tumors using pre-trained CNN.<br>
-            Status: <span style="color: var(--terminal-green);">live</span> on Hugging Face Spaces
-          </div>
-          <a href="https://github.com/Vivek02Sharma/NeuroScan.git" target="_blank" class="file-link">
-            <i class="fab fa-github"></i> git clone
-          </a>
-        </div>
-
-        <div class="directory-item">
-          <div class="file-name"><i class="fas fa-folder file-icon"></i>MobileUserBehavior/</div>
-          <div class="package-list">
-            <span class="package">ann</span>
-            <span class="package">tensorflow</span>
-            <span class="package">streamlit</span>
-          </div>
-          <div class="terminal-output" style="margin: 0.5rem 0; font-size: 0.85rem;">
-            Streamlit app predicting user behavior using mobile usage data.<br>
-            Features: trained ANN model, visual progress indicators
-          </div>
-          <a href="https://github.com/Vivek02Sharma/Mobile-user-behavior-prediction.git" target="_blank"
-            class="file-link">
-            <i class="fab fa-github"></i> git clone
-          </a>
-        </div>
-
-        <div class="directory-item">
-          <div class="file-name"><i class="fas fa-file-code file-icon"></i>OnlineSales-EDA.ipynb</div>
-          <div class="package-list">
-            <span class="package">pandas</span>
-            <span class="package">matplotlib</span>
-            <span class="package">seaborn</span>
-          </div>
-          <div class="terminal-output" style="margin: 0.5rem 0; font-size: 0.85rem;">
-            Exploratory analysis and data preprocessing on online sales dataset.<br>
-            Output: insights, visualizations, engineered features for modeling
-          </div>
-          <a href="https://www.kaggle.com/code/viveksharmar/eda-and-feature-engineering-on-online-sales" target="_blank"
-            class="file-link">
-            <i class="fab fa-kaggle"></i> view notebook
-          </a>
-        </div>
-
+      <div class="hero-ctas animate-in" style="--delay:0.45s">
+        <a href="assets/Vivek_s_Resume.pdf" download class="btn btn-primary">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
       </div>
-    </section>
+  </section>
 
-    <div class="command-line">
-      <span class="user">vivek</span><span class="prompt">@</span><span class="host">fedora</span><span
-        class="prompt">:</span><span class="path">~</span><span class="prompt">$</span> <span class="command">cat
-        /var/log/experience.log</span>
-    </div>
+  <!-- ==================== ABOUT ==================== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-label">01 &mdash; about</div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-title">Who I Am</h2>
+          <p>
+            I'm a Machine Learning Engineer with hands-on experience architecting RAG systems and LLM inference
+            pipelines that power real-world voice AI products.
+          </p>
+          <p>
+            My work sits at the intersection of applied ML research and production engineering — from building custom
+            transformers from scratch to deploying scalable MLOps systems. I'm passionate about making AI genuinely
+            useful.
+          </p>
 
-    <section id="experience">
-      <div class="section-header">experience.log</div>
-      <div class="log-entry">
-        <div class="process-name">
-          <i class="fas fa-briefcase"></i> Anvex AI Technologies Private Limited - Jr. Software Engineer Machine Learning
         </div>
-        <div style="color: var(--terminal-cyan); font-size: 0.85rem; margin-bottom: 0.5rem;">
-          September 2025 – Present | Mumbai, India
-        </div>
-        <div style="color: var(--terminal-yellow); font-weight: bold; margin: 0.5rem 0 0.3rem 0; font-size: 0.9rem;">
-          <i class="fas fa-folder-open"></i> Project: AnvexSpeak
-        </div>
-        <ul class="command-list">
-          <li>Built RAG system for AnvexSpeak, a telephony AI platform using Twilio/Plivo with multi-source data extraction</li>
-          <li>Implemented BAAI/bge-large-en-v1.5 embeddings with advanced filtering for client databases, Google Drive, and web scraping</li>
-          <li>Created custom LLM wrapper supporting Gemma3, Qwen, Mistral, Llama, and OpenAI using LangChain/LangGraph</li>
-          <li>Deployed with Qdrant (production) and ChromaDB (development) for real-time document-grounded responses</li>
-        </ul>
-      </div>
-      
-      <div class="log-entry">
-        <div class="process-name">
-          <i class="fas fa-laptop-code"></i> Anvex AI Technologies Private Limited - Machine Learning Intern
-        </div>
-        <div style="color: var(--terminal-cyan); font-size: 0.85rem; margin-bottom: 0.5rem;">
-          June 2025 – August 2025 | Mumbai, India
-        </div>
-        <div style="color: var(--terminal-yellow); font-weight: bold; margin: 0.5rem 0 0.3rem 0; font-size: 0.9rem;">
-          <i class="fas fa-folder-open"></i> Project: AVA
-        </div>
-        <ul class="command-list">
-          <li>Developed AVA, a RAG-powered policy chatbot using LangChain/LangGraph for query routing</li>
-          <li>Integrated Qdrant vector store and SambaNova Llama-4 across 26+ policies</li>
-          <li>Built FastAPI endpoints achieving 800-1500ms response time with confidence scoring</li>
-          <li>Implemented advanced query routing and document retrieval systems</li>
-        </ul>
-      </div>
-      
-      <div class="log-entry">
-        <div class="process-name">
-          <i class="fas fa-cogs"></i> Techathon - Mulund College of Commerce
-        </div>
-        <div style="color: var(--terminal-cyan); font-size: 0.85rem; margin-bottom: 0.5rem;">
-          February 2025 | Mumbai, India
-        </div>
-        <ul class="command-list">
-          <li>Built predictive maintenance models using sensor data and historical maintenance records</li>
-          <li>Performed feature engineering and hyperparameter tuning for model optimization</li>
-          <li>Integrated ML models into backend using FastAPI for real-time predictions</li>
-          <li>Achieved accurate equipment failure predictions for preventive maintenance</li>
-        </ul>
-      </div>
-    </section>
-
-    <div class="command-line">
-      <span class="user">vivek</span><span class="prompt">@</span><span class="host">fedora</span><span
-        class="prompt">:</span><span class="path">~</span><span class="prompt">$</span> <span class="command">ps aux |
-        grep skills</span>
-    </div>
-
-    <section id="skills">
-      <div class="section-header">running_processes</div>
-      <div class="process-tree">
-        <div class="process-item">
-          <div class="process-name">
-            <i class="fas fa-code"></i> Languages
+        <div class="about-card-wrap">
+          <div class="about-terminal" id="interactiveTerminal">
+            <div class="terminal-bar">
+              <span class="t-dot red"></span>
+              <span class="t-dot yellow"></span>
+              <span class="t-dot green"></span>
+              <span class="t-title">vivek@shell:~</span>
+            </div>
+            <div class="terminal-body" id="terminalBody">
+              <div class="t-line"><span class="t-prompt">$</span> <span class="t-out-inline">Type <span
+                    class="t-hint">help</span> and press Enter to explore</span></div>
+            </div>
+            <div class="terminal-input-row">
+              <span class="t-prompt">$</span>
+              <input type="text" id="terminalInput" class="terminal-input" placeholder="type a command..."
+                autocomplete="off" spellcheck="false" />
+            </div>
           </div>
-          <ul class="command-list">
-            <li>python</li>
-            <li>sql</li>
-          </ul>
         </div>
-        <div class="process-item">
-          <div class="process-name">
-            <i class="fas fa-layer-group"></i> Frameworks
-          </div>
-          <ul class="command-list">
-            <li>tensorflow-gpu</li>
-            <li>pytorch</li>
-            <li>flask</li>
-            <li>fastapi</li>
-            <li>langchain</li>
-            <li>langgraph</li>
-          </ul>
-        </div>
-        <div class="process-item">
-          <div class="process-name">
-            <i class="fas fa-book"></i> Libraries
-          </div>
-          <ul class="command-list">
-            <li>scikit-learn</li>
-            <li>numpy</li>
-            <li>pandas</li>
-            <li>matplotlib</li>
-            <li>seaborn</li>
-            <li>plotly</li>
-            <li>streamlit</li>
-          </ul>
-        </div>
-        <div class="process-item">
-          <div class="process-name">
-            <i class="fas fa-tools"></i> DevOps
-          </div>
-          <ul class="command-list">
-            <li>docker</li>
-            <li>git</li>
-            <li>vim</li>
-            <li>bash</li>
-            <li>jupyter-lab</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <div class="status-bar">
-      <div class="system-info">
-        <i class="fab fa-fedora"></i> Fedora Linux 42 | Kernel 6.15.7-100.fc41.x86_64 | Shell: bash 5.2.32
-      </div>
-      <div class="uptime">
-        <i class="fas fa-clock"></i> Uptime: 1 hour, 29 mins | Memory: 5.36 GiB / 7.40 GiB (73%)
       </div>
     </div>
-  </div>
+  </section>
 
-  <div
-    style="text-align: center; padding: 1rem; color: var(--terminal-green); font-family: 'Ubuntu Mono', monospace; font-size: 0.8rem;">
-    <p>vivek@fedora:~$ echo "© 2025 Vivek Sharma - Built with ❤️ and lots of ☕"</p>
-    <p style="color: var(--terminal-cyan);">Connection to vivek02sharma.github.io established. Welcome to my digital
-      workspace!</p>
-  </div>
+  <!-- ==================== EXPERIENCE ==================== -->
+  <section class="experience section" id="experience">
+    <div class="container">
+      <div class="section-label">03 &mdash; experience</div>
+      <h2 class="section-title">Where I've Worked</h2>
+      <div class="timeline">
 
-  <script>
-    // Intersection Observer for animations
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, { threshold: 0.1 });
+        <div class="timeline-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <h3>Jr. Software Engineer — ML</h3>
+              <span class="tl-date">Sep 2025 – May 2026</span>
+            </div>
+            <p class="tl-company">Anvex AI Technologies · Mumbai</p>
+            <ul class="tl-points">
+              <li>Built RAG system for <strong>AnvexSpeak</strong> (AI Voice Agent) with multi-source extraction: client
+                databases, Google Drive, web scraping; using BAAI/bge-large-en-v1.5 embeddings and advanced filtering.
+              </li>
+              <li>Developed unified LLM inference layer using <strong>vLLM</strong> supporting Gemma 3, Qwen, Mistral,
+                Llama and OpenAI models, with Qdrant (prod) and ChromaDB (dev) for document-grounded responses.</li>
+            </ul>
+          </div>
+        </div>
 
-    // Observe elements for animations
-    document.querySelectorAll(".directory-item").forEach(item => observer.observe(item));
-    document.querySelectorAll(".process-item").forEach(item => observer.observe(item));
+        <div class="timeline-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <h3>Machine Learning Intern</h3>
+              <span class="tl-date">Jun 2025 – Aug 2025</span>
+            </div>
+            <p class="tl-company">Anvex AI Technologies · Mumbai</p>
+            <ul class="tl-points">
+              <li>Built <strong>AVA</strong> — a RAG-powered policy chatbot using LangChain/LangGraph, Qdrant, and
+                SambaNova Llama-4 across 26+ policies with FastAPI endpoints and confidence scoring.</li>
+            </ul>
+          </div>
+        </div>
 
-    // Terminal typing effect for the main title
-    document.addEventListener('DOMContentLoaded', function () {
-      const asciiArt = document.querySelector('.ascii-art');
-      const asciiArtMobile = document.querySelector('.ascii-art-mobile');
+        <div class="timeline-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <div class="tl-header">
+              <h3>Techathon Participant</h3>
+              <span class="tl-date">Feb 2025</span>
+            </div>
+            <p class="tl-company">Mulund College of Commerce · Mumbai</p>
+            <ul class="tl-points">
+              <li>Built ML models predicting equipment failures from sensor data and maintenance records, integrating
+                with <strong>FastAPI</strong> for real-time predictive maintenance.</li>
+            </ul>
+          </div>
+        </div>
 
-      // Animate ASCII art on desktop
-      if (asciiArt && window.innerWidth > 600) {
-        asciiArt.style.opacity = '0';
-        setTimeout(() => {
-          asciiArt.style.transition = 'opacity 2s ease-in';
-          asciiArt.style.opacity = '1';
-        }, 500);
-      }
+      </div>
+    </div>
+  </section>
 
-      // Animate mobile title
-      if (asciiArtMobile && window.innerWidth <= 600) {
-        asciiArtMobile.style.opacity = '0';
-        asciiArtMobile.style.transform = 'translateY(20px) scale(0.9)';
-        setTimeout(() => {
-          asciiArtMobile.style.transition = 'opacity 1.5s ease-in, transform 1.5s ease-in';
-          asciiArtMobile.style.opacity = '1';
-          asciiArtMobile.style.transform = 'translateY(0) scale(1)';
-        }, 500);
-      }
+  <!-- ==================== PROJECTS ==================== -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-label">04 &mdash; projects</div>
+      <h2 class="section-title">Things I've Built</h2>
+      <div class="projects-grid">
 
-      // Add blinking cursor to command prompts (only on larger screens)
-      if (window.innerWidth > 768) {
-        const commandLines = document.querySelectorAll('.command-line');
-        commandLines.forEach((line, index) => {
-          setTimeout(() => {
-            const cursor = document.createElement('span');
-            cursor.textContent = '█';
-            cursor.className = 'blinking-cursor';
-            cursor.style.color = 'var(--terminal-green)';
-            line.appendChild(cursor);
-          }, 1000 + (index * 500));
-        });
-      }
+        <article class="project-card" data-index="01">
+          <div class="card-glow"></div>
+          <div class="card-inner">
+            <div class="card-top">
+              <span class="card-num">01</span>
+              <div class="card-links">
+                <a href="https://github.com/Vivek02Sharma/MedVec-Scratch.git" target="_blank" rel="noopener"
+                  aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="card-title">MedVec-Scratch</h3>
+            <p class="card-desc">Custom medical sentence embedding model built from scratch using a Siamese Transformer
+              (4 layers, 256 dim) with a custom BPE tokenizer (30k vocab), trained on 233k medical triplets using
+              Triplet Margin Loss for healthcare semantic search.</p>
+            <div class="card-tags">
+              <span>Python</span><span>PyTorch</span><span>BPE
+                Tokenizer</span><span>HuggingFace</span><span>Transformers</span>
+            </div>
+          </div>
+        </article>
 
-      // Mobile-specific optimizations
-      if (window.innerWidth <= 768) {
-        // Reduce animation delays on mobile
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.style.transition = 'all 0.3s ease';
-              entry.target.classList.add("visible");
-            }
-          });
-        }, { threshold: 0.05 });
+        <article class="project-card" data-index="02">
+          <div class="card-glow"></div>
+          <div class="card-inner">
+            <div class="card-top">
+              <span class="card-num">02</span>
+              <div class="card-links">
+                <a href="https://github.com/Vivek02Sharma/AskRAG" target="_blank" rel="noopener" aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="card-title">Federal Registry RAG Agent</h3>
+            <p class="card-desc">Full-stack RAG system for US Federal Registry queries with Groq LLM, async pipelines,
+              MySQL backend, and agentic tool-calling architecture for real-time document retrieval.</p>
+            <div class="card-tags">
+              <span>Python</span><span>Groq LLM</span><span>MySQL</span><span>Streamlit</span><span>Asyncio</span>
+            </div>
+          </div>
+        </article>
 
-        // Re-observe with mobile settings
-        document.querySelectorAll(".directory-item").forEach(item => observer.observe(item));
-        document.querySelectorAll(".process-item").forEach(item => observer.observe(item));
-      }
+        <article class="project-card" data-index="03">
+          <div class="card-glow"></div>
+          <div class="card-inner">
+            <div class="card-top">
+              <span class="card-num">03</span>
+              <div class="card-links">
+                <a href="https://github.com/Vivek02Sharma/End-to-end-mlops-with-mlflow.git" target="_blank"
+                  rel="noopener" aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="card-title">MLOps Pipeline with MLflow</h3>
+            <p class="card-desc">End-to-end MLOps pipeline for medical cost prediction — comparing 4 regression models
+              with automated best-model selection via R² score, MLflow experiment tracking, model registry, FastAPI
+              serving, and Streamlit frontend.</p>
+            <div class="card-tags">
+              <span>Python</span><span>Scikit-learn</span><span>XGBoost</span><span>MLflow</span><span>FastAPI</span>
+            </div>
+          </div>
+        </article>
 
-      // Handle orientation changes and window resize
-      function handleResize() {
-        const asciiArt = document.querySelector('.ascii-art');
-        const asciiArtCompact = document.querySelector('.ascii-art-compact');
-        const asciiArtMobile = document.querySelector('.ascii-art-mobile');
-        const nameFallback = document.getElementById('name-fallback');
+        <article class="project-card" data-index="04">
+          <div class="card-glow"></div>
+          <div class="card-inner">
+            <div class="card-top">
+              <span class="card-num">04</span>
+              <div class="card-links">
+                <a href="https://github.com/Vivek02Sharma/ArtCycle.git" target="_blank" rel="noopener"
+                  aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="https://artcycle-ai.streamlit.app" target="_blank" rel="noopener" aria-label="Live demo">
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="card-title">ArtCycle</h3>
+            <p class="card-desc">Deep learning project using CycleGAN to transform photos into paintings and vice versa
+              — unsupervised image-to-image translation without paired data. Live on Streamlit.</p>
+            <div class="card-tags">
+              <span>Python</span><span>TensorFlow</span><span>CycleGAN</span><span>Streamlit</span>
+            </div>
+          </div>
+        </article>
 
-        // Hide all versions first
-        if (asciiArt) asciiArt.style.display = 'none';
-        if (asciiArtCompact) asciiArtCompact.style.display = 'none';
-        if (asciiArtMobile) asciiArtMobile.style.display = 'none';
-        if (nameFallback) nameFallback.style.display = 'none';
+        <article class="project-card" data-index="05">
+          <div class="card-glow"></div>
+          <div class="card-inner">
+            <div class="card-top">
+              <span class="card-num">05</span>
+              <div class="card-links">
+                <a href="https://github.com/Vivek02Sharma/NeuroScan" target="_blank" rel="noopener" aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="https://huggingface.co/spaces/victor009/brain-tumor-classification" target="_blank"
+                  rel="noopener" aria-label="Live demo">
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="card-title">NeuroScan</h3>
+            <p class="card-desc">Streamlit web app classifying brain tumor types (Glioma, Meningioma, Pituitary, No
+              Tumor) from MRI images using a pre-trained CNN. Live demo on Hugging Face Spaces.</p>
+            <div class="card-tags">
+              <span>Python</span><span>TensorFlow/Keras</span><span>CNN</span><span>Streamlit</span><span>NumPy</span>
+            </div>
+          </div>
+        </article>
 
-        if (window.innerWidth <= 600) {
-          // Show mobile version for screens 600px and below
-          if (asciiArtMobile) {
-            asciiArtMobile.style.display = 'flex';
-            asciiArtMobile.style.visibility = 'visible';
-          } else if (nameFallback) {
-            nameFallback.style.display = 'block';
-          }
-        } else if (window.innerWidth <= 900) {
-          // Show compact version for medium screens (601px - 900px)
-          if (asciiArtCompact) {
-            asciiArtCompact.style.display = 'block';
-            asciiArtCompact.style.visibility = 'visible';
-          } else if (asciiArt) {
-            asciiArt.style.display = 'block';
-            asciiArt.style.visibility = 'visible';
-          } else if (nameFallback) {
-            nameFallback.style.display = 'block';
-          }
-        } else {
-          // Show full ASCII art for large screens (> 900px)
-          if (asciiArt) {
-            asciiArt.style.display = 'block';
-            asciiArt.style.visibility = 'visible';
-          } else if (asciiArtCompact) {
-            asciiArtCompact.style.display = 'block';
-            asciiArtCompact.style.visibility = 'visible';
-          } else if (nameFallback) {
-            nameFallback.style.display = 'block';
-          }
-        }
+      </div>
+    </div>
+  </section>
 
-        // Double-check that at least one name version is visible
-        setTimeout(() => {
-          const asciiVisible = asciiArt && asciiArt.style.display !== 'none';
-          const compactVisible = asciiArtCompact && asciiArtCompact.style.display !== 'none';
-          const mobileVisible = asciiArtMobile && asciiArtMobile.style.display !== 'none';
+  <!-- ==================== CONTACT ==================== -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-label">05 &mdash; contact</div>
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="contact-sub">I'm open to ML engineering roles, research collaborations, and interesting projects. Drop a
+        message!</p>
+      <div class="contact-links">
+        <button class="contact-item" id="copyEmailBtn" aria-label="Copy email address">
+          <i class="fas fa-envelope"></i>
+          <span>vivektusharma@gmail.com</span>
+          <span class="copy-badge" id="copyBadge">copied!</span>
+        </button>
+        <a href="https://linkedin.com/in/vivek-sharma-64951b24b" target="_blank" rel="noopener" class="contact-item">
+          <i class="fab fa-linkedin"></i>
+          <span>linkedin/vivek-sharma-64951b24b</span>
+        </a>
+        <a href="https://github.com/Vivek02Sharma" target="_blank" rel="noopener" class="contact-item">
+          <i class="fab fa-github"></i>
+          <span>github/Vivek02Sharma</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-          if (!asciiVisible && !compactVisible && !mobileVisible && nameFallback) {
-            nameFallback.style.display = 'block';
-            console.log('Fallback name displayed');
-          }
-        }, 100);
-      }
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo"><span class="logo-bracket">[</span>VS<span class="logo-bracket">]</span></span>
+        <p class="footer-copy">© 2025 Vivek Sharma. Built with precision &amp; purpose.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/Vivek02Sharma" target="_blank" rel="noopener" aria-label="GitHub"><i
+              class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/vivek-sharma-64951b24b" target="_blank" rel="noopener"
+            aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:vivektusharma@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-      window.addEventListener('resize', handleResize);
-      window.addEventListener('orientationchange', function () {
-        setTimeout(() => {
-          handleResize();
-          window.dispatchEvent(new Event('resize'));
-        }, 100);
-      });
-
-      // Initial call
-      handleResize();
-
-      // Email copy functionality
-      const emailLink = document.getElementById('email-link');
-      if (emailLink) {
-        emailLink.addEventListener('click', function (e) {
-          e.preventDefault(); // Prevent default mailto behavior
-
-          const email = 'vivektusharma@gmail.com';
-
-          // Copy email to clipboard
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(email).then(() => {
-              showCopyMessage('Email copied to clipboard!');
-            }).catch(() => {
-              // Fallback for older browsers
-              fallbackCopyTextToClipboard(email);
-            });
-          } else {
-            // Fallback for older browsers
-            fallbackCopyTextToClipboard(email);
-          }
-        });
-      }
-
-      // Function to show copy confirmation message
-      function showCopyMessage(message) {
-        // Create notification element
-        const notification = document.createElement('div');
-        notification.textContent = message;
-        notification.style.cssText = `
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          background: rgba(0, 255, 0, 0.9);
-          color: #000;
-          padding: 12px 20px;
-          border-radius: 6px;
-          font-family: 'Fira Code', monospace;
-          font-size: 14px;
-          font-weight: 500;
-          z-index: 10000;
-          box-shadow: 0 4px 12px rgba(0, 255, 0, 0.3);
-          border: 1px solid rgba(0, 255, 0, 0.5);
-          animation: slideIn 0.3s ease-out;
-        `;
-
-        // Add animation keyframes if not already added
-        if (!document.querySelector('#copy-notification-styles')) {
-          const style = document.createElement('style');
-          style.id = 'copy-notification-styles';
-          style.textContent = `
-            @keyframes slideIn {
-              from {
-                transform: translateX(100%);
-                opacity: 0;
-              }
-              to {
-                transform: translateX(0);
-                opacity: 1;
-              }
-            }
-            @keyframes slideOut {
-              from {
-                transform: translateX(0);
-                opacity: 1;
-              }
-              to {
-                transform: translateX(100%);
-                opacity: 0;
-              }
-            }
-          `;
-          document.head.appendChild(style);
-        }
-
-        document.body.appendChild(notification);
-
-        // Remove notification after 3 seconds
-        setTimeout(() => {
-          notification.style.animation = 'slideOut 0.3s ease-in';
-          setTimeout(() => {
-            if (notification.parentNode) {
-              notification.parentNode.removeChild(notification);
-            }
-          }, 300);
-        }, 3000);
-      }
-
-      // Fallback function for older browsers
-      function fallbackCopyTextToClipboard(text) {
-        const textArea = document.createElement('textarea');
-        textArea.value = text;
-        textArea.style.position = 'fixed';
-        textArea.style.left = '-999999px';
-        textArea.style.top = '-999999px';
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-
-        try {
-          const successful = document.execCommand('copy');
-          if (successful) {
-            showCopyMessage('Email copied to clipboard!');
-          } else {
-            showCopyMessage('Please copy manually: ' + text);
-          }
-        } catch (err) {
-          showCopyMessage('Please copy manually: ' + text);
-        }
-
-        document.body.removeChild(textArea);
-      }
-
-      // Touch-friendly interactions for mobile
-      if ('ontouchstart' in window) {
-        document.querySelectorAll('.directory-item, .process-item').forEach(item => {
-          item.addEventListener('touchstart', function () {
-            this.style.transform = 'scale(0.98)';
-          });
-
-          item.addEventListener('touchend', function () {
-            this.style.transform = 'scale(1)';
-          });
-        });
-      }
-    });
-
-    // System info updater (simulates real system stats)
-    function updateSystemInfo() {
-      const uptimeElement = document.querySelector('.uptime');
-      if (uptimeElement) {
-        const now = new Date();
-        const hours = now.getHours();
-        const minutes = now.getMinutes();
-
-        // Simulate realistic memory usage (between 60-80%)
-        const memUsed = (Math.random() * 2 + 5).toFixed(2); // 5-7 GiB used
-        const memTotal = 7.40;
-        const memPercent = Math.round((memUsed / memTotal) * 100);
-
-        // Simulate realistic uptime (hours and minutes)
-        const uptimeHours = Math.floor(Math.random() * 12 + 1); // 1-12 hours
-        const uptimeMins = Math.floor(Math.random() * 60); // 0-59 minutes
-
-        uptimeElement.innerHTML = `<i class="fas fa-clock"></i> Uptime: ${uptimeHours} hour${uptimeHours > 1 ? 's' : ''}, ${uptimeMins} mins | Memory: ${memUsed} GiB / ${memTotal} GiB (${memPercent}%)`;
-      }
-    }
-
-    // Update system info every 60 seconds
-    setInterval(updateSystemInfo, 60000);
-    updateSystemInfo(); // Initial call
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
